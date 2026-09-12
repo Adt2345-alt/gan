@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#7a0a04" />
+  <title>॥ श्री गणेशाय नमः ॥ बाप्पाचे आगमन - डिजिटल निमंत्रण पत्रिका</title>
+
+  <!-- WhatsApp & Social Media Open Graph Preview Meta Tags -->
+  <meta name="description" content="डिजिटल गणेशोत्सव निमंत्रण पत्रिका - बाप्पाच्या आगमनाचे सप्रेम निमंत्रण. सहकुटुंब सहपरिवार आदरपूर्वक निमंत्रित." />
+  <meta property="og:title" content="🚩 ॥ श्री गणेशाय नमः ॥ बाप्पाचे आगमन - डिजिटल निमंत्रण" />
+  <meta property="og:description" content="आमच्या घरी श्री गणरायाचे आगमन होत आहे. या मंगल सोहळ्यास सहकुटुंब सहपरिवार नक्की या! 🪔✨" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/ganpati_idol.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="900" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="🚩 ॥ श्री गणेशाय नमः ॥ बाप्पाचे आगमन" />
+  <meta name="twitter:description" content="आमच्या घरी श्री गणरायाचे आगमन होत आहे. या मंगल सोहळ्यास नक्की या!" />
+  <meta name="twitter:image" content="images/ganpati_idol.jpg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Poppins:wght@400;500;600;700&family=Rozha+One&family=Tiro+Devanagari+Marathi:ital@0;1&family=Yatra+One&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Falling Marigold Petals Canvas -->
+  <canvas id="petalCanvas"></canvas>
+
+  <!-- Background Audio Player -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="https://actions.google.com/sounds/v1/ambiences/temple_bells.ogg" type="audio/ogg">
+  </audio>
+
+  <!-- Top Action Bar with Language Switcher & WhatsApp Share -->
+  <header class="top-controls">
+    <!-- Language Switcher Toggle -->
+    <div class="lang-switcher" id="langSwitcher">
+      <button class="lang-btn active" data-lang="mr">मराठी</button>
+      <button class="lang-btn" data-lang="hi">हिंदी</button>
+      <button class="lang-btn" data-lang="en">ENG</button>
+    </div>
+
+    <div class="header-action-btns">
+      <button class="ctrl-btn highlight" id="shareInviteBtn" title="WhatsApp वर शेअर करा">
+        <span class="icon">📲</span><span class="btn-lbl" data-i18n="btn_share">शेअर करा</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Royal Envelope Opening Overlay -->
+  <div class="envelope-overlay" id="envelopeOverlay">
+    <div class="envelope-card">
+      <div class="mandap-top-arch"></div>
+      <div class="invitation-badge" data-i18n="shree_ganeshay_namah">॥ श्री गणेशाय नमः ॥</div>
+      <div class="bappa-seal">
+        <div class="seal-circle">
+          <span class="om-symbol">ॐ</span>
+        </div>
+      </div>
+      <h2 class="envelope-title" data-i18n="envelope_title">गणेशोत्सव निमंत्रण</h2>
+      <p class="envelope-sub" data-i18n="envelope_sub">सप्रेम निमंत्रण स्वीकारण्यासाठी खाली क्लिक करा</p>
+      <button class="open-envelope-btn" id="openEnvelopeBtn">
+        <span class="sparkle">✦</span> <span data-i18n="open_invite_btn">निमंत्रण पत्रिका उघडा</span> <span class="sparkle">✦</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Digital Card Layout -->
+  <main class="main-container" id="mainContainer">
+
+    <!-- CARD 1: Traditional Temple Mandap Front (Matches Instagram Reel Image 0) -->
+    <section class="temple-card-front" id="hero">
+      
+      <!-- Top Marigold Toran Garland -->
+      <div class="toran-garland">
+        <div class="toran-leaves"></div>
+        <div class="toran-marigolds">
+          <span class="m-flower">🌼</span><span class="m-flower orange">🌸</span>
+          <span class="m-flower">🌼</span><span class="m-flower orange">🌸</span>
+          <span class="m-flower">🌼</span><span class="m-flower orange">🌸</span>
+          <span class="m-flower">🌼</span><span class="m-flower orange">🌸</span>
+          <span class="m-flower">🌼</span>
+        </div>
+      </div>
+
+      <!-- Left & Right Hanging Temple Bells -->
+      <div class="hanging-bell bell-left" id="bellLeft" title="घंटी वाजवा">
+        <div class="chain"></div>
+        <div class="bell-body">🔔</div>
+      </div>
+
+      <div class="hanging-bell bell-right" id="bellRight" title="घंटी वाजवा">
+        <div class="chain"></div>
+        <div class="bell-body">🔔</div>
+      </div>
+
+      <!-- Floating Audio Toggle Button (Top Right of Card) -->
+      <button class="audio-circle-btn" id="soundToggleBtn" title="संगीत ऑन/ऑफ">
+        <div class="audio-badge-ring">
+          <span class="audio-icon" id="soundIcon">🎵</span>
+        </div>
+      </button>
+
+      <!-- Sacred Header Text -->
+      <div class="sacred-header">
+        <div class="om-header">ॐ</div>
+        <p class="ganeshay-namah" data-i18n="shree_ganeshay_namah">॥ श्री गणेशाय नमः ॥</p>
+        <h1 class="aagaman-title" data-i18n="bappa_aagaman">बाप्पाचे आगमन</h1>
+        <p class="sub-invitation-text" data-i18n="bappa_sub_invitation">आपणास सस्नेह निमंत्रण !</p>
+      </div>
+
+      <!-- Center Divine Ganesha Shrine Frame -->
+      <div class="shrine-frame-wrapper">
+        <div class="shrine-arch-outer">
+          <div class="shrine-image-container">
+            <img src="images/ganpati_idol.jpg" alt="श्री गणपती बाप्पा" class="ganpati-idol-img" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Ritual Tools -->
+      <div class="ritual-toolbar">
+        <button class="ritual-btn" id="ringBellBtn">
+          <span class="r-icon">🔔</span>
+          <span class="r-txt" data-i18n="ring_bell">घंटी वाजवा</span>
+        </button>
+        <button class="ritual-btn" id="showerFlowersBtn">
+          <span class="r-icon">🌸</span>
+          <span class="r-txt" data-i18n="shower_flowers">पुष्पवृष्टी</span>
+        </button>
+        <button class="ritual-btn" id="lightDiyaBtn">
+          <span class="r-icon">🪔</span>
+          <span class="r-txt" data-i18n="light_diya">आरती ओवाळा</span>
+        </button>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="scroll-cue">
+        <span data-i18n="scroll_down">खाली स्क्रोल करा</span>
+        <div class="arrow-down">↓</div>
+      </div>
+    </section>
+
+    <!-- CARD 2: Deep Crimson Maroon Venue Card (Matches Instagram Reel Image 1) -->
+    <section class="red-maroon-venue-card" id="venueCard">
+      <div class="inner-gold-border">
+        
+        <!-- Host / Residence Name -->
+        <h2 class="residence-title" id="displayHostVenue">देशपांडे निवास</h2>
+        
+        <!-- Address Text -->
+        <p class="residence-address" id="displayAddressLine">
+          प्लॉट नं. ४५२, श्री गणेश अपार्टमेंट्स, विद्यानगर पुणे - ४११००५
+        </p>
+
+        <!-- Pill Button: Open Maps -->
+        <div class="maps-btn-container">
+          <a id="googleMapsLink" href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="open-maps-pill-btn" data-i18n="open_maps_btn">
+            Open Maps
+          </a>
+        </div>
+
+        <!-- Marathi Welcome Subtext -->
+        <p class="welcome-blessing-text" data-i18n="welcome_blessing">
+          आपल्या सहकुटुंब उपस्थितीने उत्सवाची शोभा वाढवा
+        </p>
+
+        <!-- Decorative Motifs / Line -->
+        <div class="decorative-divider">
+          <span class="d-line"></span>
+          <span class="d-symbol">❖</span>
+          <span class="d-line"></span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CARD 3: Event Schedule & Timing (सोहळ्याची रूपरेषा) -->
+    <section class="info-card schedule-card">
+      <div class="card-header">
+        <p class="card-subtitle" data-i18n="schedule_subtitle">॥ सोहळ्याची रूपरेषा ॥</p>
+        <h2 class="card-title"><span data-i18n="schedule_title_prefix">मंगल</span> <em class="gold-highlight" data-i18n="schedule_title_highlight">कार्यक्रम</em></h2>
+      </div>
+
+      <div class="event-meta-grid">
+        <div class="meta-box">
+          <span class="m-icon">📅</span>
+          <span class="m-label" data-i18n="label_date">दिनांक</span>
+          <strong id="displayDate" class="m-val">सोमवार, १५ सप्टेंबर २०२६</strong>
+        </div>
+        <div class="meta-box">
+          <span class="m-icon">⏰</span>
+          <span class="m-label" data-i18n="label_time">स्थापना व आरती</span>
+          <strong id="displayTime" class="m-val">सकाळी १०:०० वाजता</strong>
+        </div>
+      </div>
+
+      <div class="timeline-list">
+        <div class="timeline-item">
+          <div class="t-badge">०१</div>
+          <div class="t-details">
+            <h4 data-i18n="event1_title">श्री गणेश आगमन व स्थापना</h4>
+            <p data-i18n="event1_time">सकाळी ०९:०० ते ११:००</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="t-badge">०२</div>
+          <div class="t-details">
+            <h4 data-i18n="event2_title">सकाळची महाआरती</h4>
+            <p data-i18n="event2_time">सकाळी ११:३० वाजता</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="t-badge">०३</div>
+          <div class="t-details">
+            <h4 data-i18n="event3_title">महाप्रसाद (भोजन)</h4>
+            <p data-i18n="event3_time">दुपारी १२:३० ते ०३:३०</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="t-badge">०४</div>
+          <div class="t-details">
+            <h4 data-i18n="event4_title">सायंकाळची आरती व भजन</h4>
+            <p data-i18n="event4_time">संध्याकाळी ०७:३० वाजता</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="t-badge">०५</div>
+          <div class="t-details">
+            <h4 data-i18n="event5_title">उत्तरपूजा व विसर्जन सोहळा</h4>
+            <p data-i18n="event5_time">दुसऱ्या दिवशी संध्याकाळी ०६:००</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARD 4: Realtime Countdown Timer -->
+    <section class="info-card countdown-card">
+      <p class="card-subtitle" data-i18n="countdown_subtitle">उत्सवाची उत्सुकता</p>
+      <h2 class="card-title"><span data-i18n="countdown_title_prefix">आगमनाला</span> <em class="gold-highlight" data-i18n="countdown_title_highlight">उरलेला वेळ</em></h2>
+
+      <div class="timer-grid" id="timerBox">
+        <div class="t-unit">
+          <span id="days" class="t-num">00</span>
+          <span class="t-lbl" data-i18n="unit_days">दिवस</span>
+        </div>
+        <div class="t-sep">:</div>
+        <div class="t-unit">
+          <span id="hours" class="t-num">00</span>
+          <span class="t-lbl" data-i18n="unit_hours">तास</span>
+        </div>
+        <div class="t-sep">:</div>
+        <div class="t-unit">
+          <span id="minutes" class="t-num">00</span>
+          <span class="t-lbl" data-i18n="unit_minutes">मिनिटे</span>
+        </div>
+        <div class="t-sep">:</div>
+        <div class="t-unit">
+          <span id="seconds" class="t-num">00</span>
+          <span class="t-lbl" data-i18n="unit_seconds">सेकंद</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARD 5: Interactive RSVP & Guest Blessings Wall -->
+    <section class="info-card rsvp-card">
+      <p class="card-subtitle" data-i18n="rsvp_subtitle">उपस्थिती नोंदणी</p>
+      <h2 class="card-title"><span data-i18n="rsvp_title_prefix">तुम्ही</span> <em class="gold-highlight" data-i18n="rsvp_title_highlight">येणार ना?</em></h2>
+      <p class="rsvp-desc" data-i18n="rsvp_desc">तुमची उपस्थिती नोंदवा म्हणजे आम्हास नियोजन करणे सोपे जाईल.</p>
+
+      <form id="rsvpForm" class="rsvp-form-body">
+        <div class="input-field">
+          <label for="guestName" data-i18n="label_guest_name">आपले नाव *</label>
+          <input type="text" id="guestName" data-i18n-placeholder="placeholder_name" placeholder="उदा. अमोल पाटील" required />
+        </div>
+
+        <div class="input-field">
+          <label for="guestCount" data-i18n="label_guest_count">एकूण सदस्य संख्या</label>
+          <select id="guestCount">
+            <option value="1" data-i18n="opt_1">१ व्यक्ती</option>
+            <option value="2" data-i18n="opt_2" selected>२ व्यक्ती</option>
+            <option value="3" data-i18n="opt_3">३ व्यक्ती</option>
+            <option value="4" data-i18n="opt_4">४ व्यक्ती</option>
+            <option value="5+" data-i18n="opt_5">५ किंवा अधिक</option>
+          </select>
+        </div>
+
+        <div class="input-field">
+          <label for="guestMessage" data-i18n="label_guest_message">बाप्पांसाठी संदेश / सदिच्छा (पर्यायी)</label>
+          <textarea id="guestMessage" rows="2" data-i18n-placeholder="placeholder_msg" placeholder="बाप्पांच्या चरणी सदिच्छा..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-rsvp-btn" data-i18n="submit_rsvp_btn">
+          ✨ नक्की येणार (उपस्थिती नोंदवा)
+        </button>
+      </form>
+
+      <div class="rsvp-thankyou" id="rsvpThankyou" style="display:none;">
+        <div class="success-diya">🪔</div>
+        <h3 data-i18n="thankyou_title">धन्यवाद!</h3>
+        <p data-i18n="thankyou_desc">आपली उपस्थिती नोंदवली गेली आहे. बाप्पांच्या आगमनाला नक्की भेटूया!</p>
+      </div>
+
+      <!-- Guest Wishes Stream -->
+      <div class="guest-wishes-wrapper">
+        <h4 class="wishes-title" data-i18n="wishes_title">भक्तांच्या सदिच्छा</h4>
+        <div class="wishes-chips-container" id="wishesList">
+          <div class="wish-card" data-i18n="sample_wish">✨ "गणपती बाप्पा मोरया! उत्सवाच्या हार्दिक शुभेच्छा!" — देशपांडे परिवार</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Blessing -->
+    <footer class="footer-blessing-section">
+      <div class="footer-diya">🪔</div>
+      <p class="blessing-quote" data-i18n="footer_quote">आपली उपस्थिती हीच आमच्यासाठी बाप्पांची कृपा.</p>
+      <h2 class="footer-morya"><span data-i18n="morya_prefix">गणपती बाप्पा</span> <br><span class="gold-gradient-text" data-i18n="morya_highlight">मोरया!</span></h2>
+      <p id="footerHostDisplay" class="family-name">— देशपांडे निवास —</p>
+      <div class="sub-credit" data-i18n="footer_sub_credit">डिजिटल गणेशोत्सव निमंत्रण पत्रिका</div>
+    </footer>
+
+  </main>
+
+  <!-- WhatsApp Share Modal -->
+  <div class="customizer-modal" id="shareModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 data-i18n="modal_share_title">📲 WhatsApp निमंत्रण शेअर करा</h3>
+        <button class="close-modal-btn" id="closeShareBtn">✕</button>
+      </div>
+      <div class="modal-body">
+        <p class="share-preview-label" data-i18n="share_preview_label">शेअर केला जाणारा मेसेज:</p>
+        <div class="share-text-box" id="shareTextPreview"></div>
+        <div class="form-actions">
+          <button class="btn-primary whatsapp-direct-btn" id="whatsappSendBtn" data-i18n="btn_send_whatsapp">
+            💬 WhatsApp वर पाठवा
+          </button>
+          <button class="btn-secondary" id="copyShareBtn" data-i18n="btn_copy_message">
+            📋 मेसेज कॉपी करा
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
